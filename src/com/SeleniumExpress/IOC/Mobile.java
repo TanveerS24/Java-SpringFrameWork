@@ -13,13 +13,12 @@ public class Mobile {
 	
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		System.out.println("loaded	");
-		System.out.println(context.containsBean("airtel")? "True" : "False");
 		Sim sim1 = (Sim) context.getBean("airtel");
 		useSim(sim1);
 		Sim sim2 = context.getBean("jio", Jio.class);
 		useSim(sim2);
-		context = null;
+		Sim sim3 = context.getBean("sim", Sim.class); //Dynamic sim Maybe jio or airtel depending on the IOC
+		useSim(sim3);
 	}
 
 }
