@@ -5,8 +5,22 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="airtel" class="com.SeleniumExpress.IOC.Airtel"/>
-    <bean id="jio" class="com.SeleniumExpress.IOC.Jio"></bean>
-    <bean id="sim" class="com.SeleniumExpress.IOC.Airtel"></bean>
-    
+    <bean id="airtel" class="com.SeleniumExpress.IOC.Airtel" />
+    <bean id="jio" class="com.SeleniumExpress.IOC.Jio" />
+    <bean id="sim" class="com.SeleniumExpress.IOC.Airtel" />
+	<bean id="cheating" class="com.SeleniumExpress.DI.Cheating" />
+    <bean id="student" class="com.SeleniumExpress.DI.Student">
+    	<property name="studentName" value="Tanveer" />
+    	<property name="id" value="48" />
+    	<property name="cheating" ref="cheating" />
+    </bean> 
+    <bean id="mithun" class="com.SeleniumExpress.DI.Student">
+    	<property name="studentName" value="Mithun" />
+    	<property name="id" value="49" />
+    	<property name="cheating" ref="cheating" />
+    </bean>
+    <bean id="subject" class="com.SeleniumExpress.DI.Subject">
+    	<constructor-arg name="subject" value="Java" type="String" />
+    	<constructor-arg name="id" value="4321" />
+    </bean>   
 </beans>
